@@ -26,9 +26,8 @@ class TaskItem extends React.Component{
   render(){
     return(
       <div className="TaskItem">
-        <img alt="alternate"  ref="" src="images/image1.jpg"/>
-        <br />
         <h1>Task Title</h1>
+        <p>Task Description</p>
       </div>
 
     );
