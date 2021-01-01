@@ -4,16 +4,23 @@ import React from 'react';
 class InputBar extends React.Component{
   state = {term: ''};
 
-  onFormSubmit = (event) => {
+  taskInput = (event) => {
     event.preventDefault();
+    // this.props.SearchSubmit(this.state.term)
+    // console.log("Input entered");
 
-  this.props.SearchSubmit(this.state.term)
-  }
+
+    var value = document.getElementById('InputBar').value;
+    if(value){
+      console.log(value);
+    }
+  };
+
 
   render(){
     return(
      <div className="container-fluid InputBar">
-      <form onSubmit={this.onFormSubmit} autocomplete="off">
+      <form onSubmit={this.taskInput} autoComplete="off">
       <input type="text" id="InputBar" value={this.state.term} onChange={e => this.setState({term: e.target.value})} placeholder="Insert a new task..."/>
       </form>
      </div>
