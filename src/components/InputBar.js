@@ -1,6 +1,28 @@
 import '../css/AppStylesheet.css';
 import React from 'react';
 
+function addTaskItem(text){
+  var list = document.getElementById('todo');
+
+  var item = document.createElement('li');
+  item.innerText = text;
+
+  var buttons = document.createElement('div');
+  buttons.classList.add('button');
+
+  var remove = document.createElement('button');
+  remove.innerHTML = "remove";
+
+  var complete = document.createElement('button');
+  complete.innerHTML = "complete";
+
+  buttons.appendChild(remove);
+  buttons.appendChild(complete);
+  item.appendChild(buttons);
+
+  list.insertBefore(item, list.childNodes[0]);
+};
+
 class InputBar extends React.Component{
   state = {term: ''};
 
@@ -12,9 +34,12 @@ class InputBar extends React.Component{
 
     var value = document.getElementById('InputBar').value;
     if(value){
-      console.log(value);
+      addTaskItem(value);
+      document.getElementById('InputBar').value = '';
     }
   };
+
+
 
 
   render(){
